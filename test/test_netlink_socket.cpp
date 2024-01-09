@@ -109,7 +109,7 @@ TEST_CASE("Parse netlink socket", "[net][netlink_socket]")
 
         expected.skbuff    = skbuff;
         expected.protocol  = 15;
-        expected.port_id   = -4167;
+        expected.port_id   = -4167u;
         expected.groups    = 2;
         expected.rmem      = 0;
         expected.wmem      = 0;

@@ -52,7 +52,7 @@ dev_t parse_device(const std::string& device_str)
         int minor;
         utils::stot(tokens[MINOR], minor, utils::base::hex);
 
-        return MKDEV(major, minor);
+        return MKDEV(static_cast<dev_t>(major), static_cast<dev_t>(minor));
     }
     catch (const std::invalid_argument& ex)
     {

@@ -29,8 +29,8 @@ TEST_CASE("Parse stat", "[procfs][proc_stat]")
 
     SECTION("Validate softirq")
     {
-        unsigned long long sum = std::accumulate(
-            stats.softirq.per_item.begin(), stats.softirq.per_item.end(), 0);
+        unsigned long long sum = static_cast<unsigned long long>(std::accumulate(
+            stats.softirq.per_item.begin(), stats.softirq.per_item.end(), 0));
         REQUIRE(sum == stats.softirq.total);
     }
 }

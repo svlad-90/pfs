@@ -66,7 +66,7 @@ static void enum_task(const pfs::task& task)
             static const size_t BYTES = 8;
             auto mem                  = task.get_mem();
             auto first_map            = *maps.begin();
-            auto header_bytes = mem.read(first_map.start_address, BYTES);
+            auto header_bytes = mem.read(static_cast<loff_t>(first_map.start_address), BYTES);
             auto header       = hexlify(header_bytes);
             print(header);
         }

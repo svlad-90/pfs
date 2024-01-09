@@ -36,7 +36,7 @@ size_t obj::copy_operator = 0;
 
 TEST_CASE("Parse lines move()-s", "[parsers]")
 {
-    auto parser = [](const std::string& line) { return obj(std::stoi(line)); };
+    auto parser = [](const std::string& line) { return obj(static_cast<size_t>(std::stoi(line))); };
 
     static const size_t ITEMS = 10;
 

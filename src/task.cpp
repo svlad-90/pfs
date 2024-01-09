@@ -201,7 +201,7 @@ task_stat task::get_stat() const
     //    ^
     // pre-comm
     static const size_t COMM_WRAP_SIZE = 3;
-    if (fseek(fp, pre_comm + st.comm.size() + COMM_WRAP_SIZE, SEEK_SET) != 0)
+    if (fseek(fp, pre_comm + static_cast<uint32_t>(st.comm.size()) + static_cast<uint32_t>(COMM_WRAP_SIZE), SEEK_SET) != 0)
     {
         throw std::runtime_error("Couldn't seek past comm in stat");
     }

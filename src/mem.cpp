@@ -41,7 +41,7 @@ mem::~mem()
 
 std::vector<uint8_t> mem::read(const mem_region& region)
 {
-    return read(region.start_address,
+    return read(static_cast<loff_t>(region.start_address),
                 region.end_address - region.start_address);
 }
 
@@ -57,7 +57,7 @@ std::vector<uint8_t> mem::read(loff_t offset, size_t bytes)
         throw std::system_error(errno, std::system_category(),
                                 "Couldn't read from memory");
     }
-    buffer.resize(bytes_read);
+    buffer.resize(static_cast<std::size_t>(bytes_read));
 
     return buffer;
 }

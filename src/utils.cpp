@@ -128,7 +128,7 @@ std::string readlink(const std::string& link, int dirfd)
         throw std::system_error(errno, std::system_category(),
                                 "Couldn't read link");
     }
-    buffer.resize(bytes); // Let our string know how much bytes it really holds
+    buffer.resize(static_cast<size_t>(bytes)); // Let our string know how much bytes it really holds
     return buffer;
 }
 
@@ -152,7 +152,7 @@ std::string readfile(const std::string& file, size_t max_bytes,
         throw std::system_error(errno, std::system_category(),
                                 "Couldn't read file");
     }
-    buffer.resize(bytes_read);
+    buffer.resize(static_cast<size_t>(bytes_read));
 
     static const char NEWLINE('\n');
     while (trim_newline && !buffer.empty() && buffer.back() == NEWLINE)

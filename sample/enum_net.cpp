@@ -66,8 +66,8 @@ int enum_net(std::vector<std::string>&& args)
         auto udplite6 = net.get_udplite6();
         print(udplite6);
 
-        auto unix = net.get_unix();
-        print(unix);
+        auto unix_ = net.get_unix();
+        print(unix_);
 
         auto netlink = net.get_netlink();
         print(netlink);

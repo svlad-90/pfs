@@ -102,7 +102,7 @@ public:
             auto key = command.name() + " " + command.args();
 
             // clang-format off
-            out << "  " << std::left << std::setw(longest_key) << std::setfill(' ') << key
+            out << "  " << std::left << std::setw(static_cast<int>(longest_key)) << std::setfill(' ') << key
                 << "  " << command.description() << "\n";
             // clang-format on
         }
